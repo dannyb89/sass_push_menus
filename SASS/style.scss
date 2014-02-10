@@ -1,0 +1,133 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+
+$base_font: 'Raleway', sans-serif;
+$emerald: #2ecc71;
+$clouds: #ecf0f1;
+$nephritis: #27ae60;
+
+/* Mixins */
+@mixin transition($speed) {
+    -webkit-transition: all $speed ease;
+    -moz-transition: all $speed ease;
+    transition: all $speed ease;
+}
+
+@mixin shadow($color) {
+  -moz-box-shadow: 0px 0px 7px 4px $color;
+  -webkit-box-shadow: 0px 0px 7px 4px $color;
+  box-shadow: 0px 0px 7px 4px $color;
+}
+
+
+body {
+  background-color: $clouds;
+  font-family: $base_font;
+  left: 0;
+  overflow-x: hidden;
+  position: relative;
+  
+  @include transition(0.3s);
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.l-row {
+  margin: 0 auto;
+  max-width:980px;
+  width: 100%;
+}
+
+.cont-btn {
+  margin: 0 auto;
+  max-width: 300px;
+  padding: 2%;
+  width: 100%;
+}
+
+.btn {
+  background-color: $emerald;
+  float: left;
+  margin: 10px 0;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+  
+  @include shadow(#bdbdbd);
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+/******/
+.cont-nav {
+  background-color: $nephritis;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 200px;
+  z-index: 1000;
+  
+  @include transition(0.3s);
+}
+
+.cont-navLeft {
+  @extend .cont-nav;
+  left: -200px;
+}
+
+.cont-navRight {
+  @extend .cont-nav;
+  right: -200px;
+}
+
+.nav-menu {
+  
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+  .title {
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 0;
+    text-align: center;
+  }
+  
+  li {
+    border-bottom: 1px solid #2cc36c;
+
+    
+    a {
+      display: block;
+      padding:12px 0 12px 15px;
+      width: 185px;
+    }
+    
+    a:hover {
+      background-color:#239c56;
+    }
+  }
+}
+
+/* Push body and nav */
+.push-right {
+  left:200px;
+}
+
+.push-left {
+  left: -200px;
+}
+
+.openLeft {
+  left: 0;
+}
+
+.openRight {
+  right: 0;
+}
